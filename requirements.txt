@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+python-multipart
+boto3
+opencv-python
+pillow
+sentence-transformers
+numpy
+python-dotenv
+aiofiles
+jinja2

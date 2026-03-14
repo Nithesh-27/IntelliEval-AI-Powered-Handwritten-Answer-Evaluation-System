@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IntelliEval | AI Handwritten Answer Evaluation</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Righteous&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body>
+    <canvas id="particleCanvas"></canvas>
+    
+    <div class="glass-container">
+        <header>
+            <h1 class="glow-text">IntelliEval</h1>
+            <p class="subtitle">Intelligent Handwritten Answer Script Evaluation</p>
+        </header>
+
+        <main id="main-content">
+            <!-- Upload Section -->
+            <section id="upload-section" class="active">
+                <div class="card-grid">
+                    <div class="upload-card">
+                        <h3>1. Answer Key</h3>
+                        <p>Upload the reference answer key (JSON or any format).</p>
+                        <div class="drop-zone" id="key-drop-zone">
+                            <input type="file" id="key-input" hidden>
+                            <div class="drop-zone-content">
+                                <span class="icon">📄</span>
+                                <span>Click or Drag Answer Key</span>
+                            </div>
+                        </div>
+                        <div id="key-status" class="file-status"></div>
+                    </div>
+
+                    <div class="upload-card">
+                        <h3>2. Answer Sheet</h3>
+                        <p>Upload the scanned handwritten sheet (Image or any format).</p>
+                        <div class="drop-zone" id="sheet-drop-zone">
+                            <input type="file" id="sheet-input" hidden>
+                            <div class="drop-zone-content">
+                                <span class="icon">📸</span>
+                                <span>Click or Drag Answer Sheet</span>
+                            </div>
+                        </div>
+                        <div id="sheet-status" class="file-status"></div>
+                    </div>
+                </div>
+
+                <div class="action-bar">
+                    <button id="evaluate-btn" class="primary-btn" disabled>Start Evaluation</button>
+                </div>
+            </section>
+
+            <!-- Loading Section -->
+            <section id="loading-section">
+                <div class="loader-content">
+                    <div class="spinner"></div>
+                    <h2 id="loading-text">Analyzing Handwriting...</h2>
+                    <p>Extracting text using AWS Textract & Preprocessing with OpenCV</p>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results-section">
+                <div class="results-header">
+                    <h2>Evaluation Results</h2>
+                    <div class="total-score-badge">
+                        <span id="score-text">0/0</span>
+                        <div class="percentage" id="percentage-text">0%</div>
+                    </div>
+                </div>
+
+                <div id="results-dashboard" class="results-grid">
+                    <!-- Results cards will be injected here -->
+                </div>
+
+                <div class="action-bar">
+                    <button id="retry-btn" class="secondary-btn">New Evaluation</button>
+                    <button id="download-pdf-btn" class="primary-btn">Download Report (PDF)</button>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 IntelliEval System | Powered by AWS Textract & AI</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

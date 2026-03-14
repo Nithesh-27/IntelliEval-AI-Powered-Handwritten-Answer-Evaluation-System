@@ -1,0 +1,14 @@
+{
+    "q1": {
+        "answer": "Photosynthesis is the process by which green plants and some other organisms use sunlight to synthesize foods with the help of chlorophyll.",
+        "marks": 5
+    },
+    "q2": {
+        "answer": "The three states of matter are solid, liquid, and gas.",
+        "marks": 3
+    },
+    "q3": {
+        "answer": "Newton's second law of motion states that the force acting on an object is equal to the mass of that object times its acceleration.",
+        "marks": 5
+    }
+}
